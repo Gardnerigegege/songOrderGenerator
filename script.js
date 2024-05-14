@@ -2,7 +2,7 @@
 
 
 function generateList() {
-    const setLength = prompt("How many songs in your setlist?");
+    var setLength = prompt("How many songs in your setlist?");
 
     function checkChoice() {
         function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
@@ -16,12 +16,12 @@ function generateList() {
     checkChoice();
 
     setLength = parseInt(setLength);
-    const setList = Array(setLength).fill(0);
+    var setList = [];
     
-   while (setList.includes(0) == true) {
+   while (setList.length < setLength) {
 
-        const randIndex = Math.floor((Math.random() + 1) * setLength);
-
+        var randIndex = Math.floor(Math.random() * setLength) + 1;
+        
         if (setList.includes(randIndex) == true) {
             console.log(randIndex + " was ignored");
         }
@@ -30,9 +30,10 @@ function generateList() {
             setList.push(randIndex);
         }
         else {console.log("Something went wrong :<")}
-        break;
+        randIndex++
     }
-    document.getElementById("theList").innerHTML = "Here ya go! " + setList;
+    
+    document.getElementById("theList").innerHTML = "Here ya go! " + setList.join(", ");
 };
 
 generateList();
