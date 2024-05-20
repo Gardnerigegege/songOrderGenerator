@@ -33,7 +33,7 @@ function generateList() {
         randIndex++
     }
     
-    document.getElementById("theList").innerHTML = "Here ya go! " + setList.join(", ");
+    document.getElementById("theList").innerHTML = `You asked for ${setLength} songs to be put in random order. Here ya go! ` + setList.join(", ");
 };
 
 generateList();
